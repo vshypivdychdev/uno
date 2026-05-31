@@ -101,4 +101,8 @@ describe('getCardPoints', () => {
     expect(getCardPoints(card('d1', 'blue', 'draw2'))).toBe(20);
     expect(getCardPoints(card('rv', 'green', 'reverse'))).toBe(20);
   });
+
+  it('number card 0 is worth 0 points', () => {
+    expect(getCardPoints(card('r0', 'red', '0'))).toBe(0);
+  });
 });
