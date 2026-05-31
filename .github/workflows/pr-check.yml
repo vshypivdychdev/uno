@@ -25,9 +25,8 @@ jobs:
         env:
           BASE_URL: /uno/
 
-      # Unit tests — will be added here when Vitest is set up
-      # - name: Test
-      #   run: npm test
+      - name: Test
+        run: npm test
 
   notify:
     needs: check
