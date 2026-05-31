@@ -1,0 +1,378 @@
+@import '../../styles/theme.css';
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+
+.mp-game-board {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+.mp-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.mp-header-leave {
+  background: none;
+  border: none;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.mp-header-leave:hover {
+  color: var(--color-text-primary);
+}
+
+.mp-header-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.mp-timer {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mp-timer--warning {
+  color: #dc2626;
+  font-weight: 800;
+}
+
+/* ── Confirm modal ───────────────────────────────────────────────────────── */
+
+.mp-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--space-4);
+}
+
+.mp-confirm-modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+  padding: var(--space-6);
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.mp-confirm-title {
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.mp-confirm-body {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.mp-confirm-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.mp-confirm-cancel {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mp-confirm-cancel:hover {
+  border-color: var(--color-text-muted);
+}
+
+.mp-confirm-leave {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  background: #dc2626;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mp-confirm-leave:hover {
+  filter: brightness(1.1);
+}
+
+/* ── Draw pile active state ──────────────────────────────────────────────── */
+
+.mp-draw-pile--active {
+  cursor: pointer;
+}
+
+.mp-draw-pile--active .card {
+  transform: translateY(-4px);
+}
+
+/* ── UNO called badge ────────────────────────────────────────────────────── */
+
+.mp-uno-called {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #dc2626;
+}
+
+/* ── Opponents ───────────────────────────────────────────────────────────── */
+
+.mp-opponents-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  flex-shrink: 0;
+}
+
+/* ── Center ─────────────────────────────────────────────────────────────── */
+
+.mp-center-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  min-height: 0;
+}
+
+.mp-pile-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.mp-pile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.mp-pile-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.mp-color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid var(--color-surface);
+  box-shadow: 0 0 0 2px var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ── My area ─────────────────────────────────────────────────────────────── */
+
+.mp-my-area {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.mp-my-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mp-my-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.mp-my-turn-status {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #dc2626;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mp-my-turn-status--mine {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  color: #4ade80;
+  text-shadow: 0 0 16px rgba(74, 222, 128, 0.5);
+}
+
+.mp-my-header-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mp-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@keyframes mp-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.mp-uno-btn {
+  padding: var(--space-2) var(--space-4);
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+  animation: mp-pulse 1s infinite;
+}
+
+.mp-draw-btn,
+.mp-pass-btn {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mp-draw-btn:hover:not(:disabled),
+.mp-pass-btn:hover:not(:disabled) {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.mp-draw-btn:disabled,
+.mp-pass-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mp-drawn-hint {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── Game over ───────────────────────────────────────────────────────────── */
+
+.mp-game-over {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  background: var(--color-bg);
+  padding: var(--space-4);
+}
+
+.mp-game-over-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+  padding: var(--space-8) var(--space-6);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.mp-game-over-trophy { font-size: 4rem; }
+
+.mp-game-over-title {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.mp-game-over-sub {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.mp-game-over-scores {
+  text-align: left;
+}
+
+.mp-game-over-scores h3 {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-2);
+}
+
+.mp-score-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.mp-leave-game-btn {
+  padding: var(--space-3);
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+}
+
+.mp-leave-game-btn:hover {
+  filter: brightness(1.1);
+}

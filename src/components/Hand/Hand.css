@@ -1,0 +1,25 @@
+.hand {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  padding: var(--space-3) var(--space-2);
+  min-height: 130px;
+  align-items: flex-end;
+}
+
+.hand-card-wrapper {
+  padding: var(--space-1);
+}
+
+@media (max-width: 480px) {
+  .hand {
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-1);
+  }
+
+  .hand-card-wrapper {
+    padding: 2px;
+  }
+}

@@ -1,0 +1,53 @@
+@import '../../styles/theme.css';
+
+.mp-opponent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.12s ease, background 0.12s ease, opacity 0.12s ease;
+}
+
+.mp-opponent--current {
+  border-color: #16a34a;
+  background: rgba(22, 163, 74, 0.12);
+}
+
+.mp-opponent--next {
+  border-color: #4ade80;
+  background: rgba(74, 222, 128, 0.06);
+}
+
+.mp-opponent--prev {
+  border-color: rgba(248, 113, 113, 0.5);
+  background: rgba(248, 113, 113, 0.06);
+}
+
+.mp-opponent--out {
+  border-color: var(--color-error);
+  background: rgba(248, 113, 113, 0.08);
+  opacity: 0.6;
+}
+
+.mp-opponent-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.mp-opponent--out .mp-opponent-name {
+  color: var(--color-error);
+}
+
+.mp-opponent--current .mp-opponent-name {
+  color: #4ade80;
+}
+
+.mp-opponent-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}

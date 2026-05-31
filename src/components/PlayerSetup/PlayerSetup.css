@@ -1,0 +1,221 @@
+.setup-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+}
+
+.setup-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-9) var(--space-8);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-panel);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── UNO logo ── */
+.setup-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.uno-logo {
+  font-size: 52px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--color-yellow-vivid);
+  text-shadow:
+    3px 3px 0 var(--color-red),
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+  letter-spacing: 4px;
+}
+
+.setup-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Player rows ── */
+.setup-player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setup-player-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.setup-player-number {
+  width: 22px;
+  text-align: center;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+}
+
+.setup-name-input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  outline: none;
+  transition: border-color var(--transition-normal);
+
+  &:focus {
+    border-color: var(--color-blue);
+  }
+}
+
+.setup-type-select,
+.setup-difficulty-select {
+  padding: var(--space-2) 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-normal);
+
+  &:focus {
+    border-color: var(--color-blue);
+  }
+}
+
+.setup-remove-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-grey-btn);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal);
+
+  &:hover {
+    background: var(--color-red);
+    color: var(--color-white);
+  }
+}
+
+/* ── Bottom actions ── */
+.setup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.setup-add-btn {
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-faint);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-normal),
+    color var(--transition-normal);
+
+  &:hover {
+    border-color: var(--color-blue);
+    color: var(--color-blue-light);
+  }
+}
+
+.setup-start-btn {
+  width: 100%;
+  padding: var(--space-3);
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn-red);
+  letter-spacing: 1px;
+  transition:
+    background var(--transition-normal),
+    transform var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background: var(--color-red-dark);
+    transform: scale(1.02);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.install-btn {
+  width: 100%;
+  padding: var(--space-3);
+  border: 2px solid var(--color-blue);
+  border-radius: var(--radius-lg);
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--color-blue-light);
+  font-size: var(--text-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background var(--transition-normal),
+    transform var(--transition-fast);
+
+  &:hover {
+    background: rgba(37, 99, 235, 0.30);
+    transform: scale(1.02);
+  }
+}
+
+.install-badge {
+  font-size: var(--text-sm);
+  color: var(--color-success);
+  margin: 0;
+  text-align: center;
+}
+
+.setup-warning {
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .setup-card {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .setup-player-row {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,110 @@
+.action-log {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-1) var(--space-7) var(--space-1) var(--space-3);
+  background: var(--color-black-30);
+  border-radius: var(--radius-sm);
+  min-height: 32px;
+}
+
+.action-log-entry {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+
+  &:last-child {
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+}
+
+.action-log-more {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  letter-spacing: 1px;
+
+  &:hover {
+    color: var(--color-text-secondary);
+    background: var(--color-white-10);
+  }
+}
+
+/* ── Full-log modal ─────────────────────────────────────────────────────── */
+
+.action-log-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 200;
+  padding: var(--space-4);
+  padding-top: calc(var(--space-4) + env(safe-area-inset-top, 0px));
+}
+
+.action-log-modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-md) var(--radius-md) var(--radius-xl) var(--radius-xl);
+  width: 100%;
+  max-width: 480px;
+  max-height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.action-log-modal-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.action-log-modal-close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-xl);
+  cursor: pointer;
+  padding: 0 var(--space-2);
+  line-height: 1;
+
+  &:hover { color: var(--color-text-secondary); }
+}
+
+.action-log-modal-entries {
+  overflow-y: auto;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.action-log-modal-entries .action-log-entry {
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--color-white-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+
+  &:last-child {
+    border-bottom: none;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+}

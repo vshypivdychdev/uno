@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Dark background with rounded corners -->
+  <rect width="512" height="512" rx="80" fill="#0f172a"/>
+  <!-- Red oval (card shape) -->
+  <ellipse cx="256" cy="256" rx="190" ry="230" transform="rotate(-20 256 256)" fill="#dc2626"/>
+  <!-- White inner oval -->
+  <ellipse cx="256" cy="256" rx="140" ry="175" transform="rotate(-20 256 256)" fill="white"/>
+  <!-- UNO text -->
+  <text
+    x="256" y="256"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Arial, sans-serif"
+    font-weight="900"
+    font-size="130"
+    fill="#dc2626"
+    transform="rotate(-20 256 256)"
+  >UNO</text>
+</svg>
